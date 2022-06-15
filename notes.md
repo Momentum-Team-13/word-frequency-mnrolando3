@@ -1,4 +1,4 @@
-Read text file using 'open'
+Read text file using 'open' - DONE
     - create function
         - function opens file
         - function then reads file after it is opened
@@ -7,12 +7,12 @@ Read text file using 'open'
 
 Calculate frequency of words in file
 
-    - remove punctuation
+    - remove punctuation - DONE
         - identify what is punctuation (period, comma, apostrophe, colon, semi-colon, parenthesis, excalamation point, asterisk, ampersand, slash, quotation mark)
         - create function
             - function deletes punctuation characters
 
-    - normalize all words to lowercase
+    - normalize all words to lowercase - DONE
         - include lowercase attribute (.lower)
 
     - remove "stop words" -- words used so frequently they are ignored
