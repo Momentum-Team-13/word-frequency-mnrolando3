@@ -4,7 +4,7 @@ from xml.sax import parseString
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
-    'will', 'with'
+    'will', 'with',
 ]
 def make_lowercase(file):
     lowercase_version = []
@@ -28,24 +28,27 @@ def remove_punctuation(file):
         # print(line_list)
     return line_list
 
-def remove_stop_words(file):
-    for word in file:
-        if word in STOP_WORDS:
-            
-
 def make_dictionary(file):
     word_count_dict = {}
     word_list = []
     for line in file:
         for word in line.split():
-            print("wordz", word)
+            # print("wordz", word)
             # words = word_count.keys[]
             word_list.append(word)
         # print("list", word_list)
     for word in word_list:
         word_count_dict[word] = word_list.count(word)
-    print("dict", word_count_dict)
+    # print("dict", word_count_dict)
     return word_count_dict
+
+def remove_stop_words(file_dictionary):
+    new_dictionary = file_dictionary.copy()
+    for key in file_dictionary.keys():
+        if key in STOP_WORDS:
+            del new_dictionary[key]
+    print(new_dictionary)
+    return new_dictionary
 
 def print_word_freq(file):
     print(f'Your file is: {file}')
@@ -55,8 +58,9 @@ def print_word_freq(file):
     
     call_lowercase_function = make_lowercase(read_file)
     no_punctuation_version = remove_punctuation(call_lowercase_function)
-    print(no_punctuation_version)
-    make_dictionary(no_punctuation_version)
+    # print(no_punctuation_version)
+    call_dictionary_function = make_dictionary(no_punctuation_version)
+    remove_stop_words(call_dictionary_function)
 
 if __name__ == "__main__":
     import argparse

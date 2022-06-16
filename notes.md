@@ -15,7 +15,7 @@ Calculate frequency of words in file
     - normalize all words to lowercase - DONE
         - include lowercase attribute (.lower)
 
-    - remove "stop words" -- words used so frequently they are ignored
+    - remove "stop words" -- words used so frequently they are ignored - DONE
         - what are "stop words"?
             - articles: the, a
             - conjunctions: and, or
@@ -24,12 +24,12 @@ Calculate frequency of words in file
         - create function
             - function deletes identified strings
 
-    - go through the file word by word and keep a count of how often each word is used
+    - go through the file word by word and keep a count of how often each word is used - DONE
         - create function
             - function counts each word
             - function creates a dictionary with key as the word and value as the count
 
-Run python3 word_frequency.py praise_song_for_the_day.txt
+Run python3 word_frequency.py praise_song_for_the_day.txt - DONE
 
 Get printed report
     - create function
