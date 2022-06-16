@@ -47,7 +47,7 @@ def remove_stop_words(file_dictionary):
     for key in file_dictionary.keys():
         if key in STOP_WORDS:
             del new_dictionary[key]
-    print(new_dictionary)
+    # print(new_dictionary)
     return new_dictionary
 
 def print_word_freq(file):
@@ -60,7 +60,12 @@ def print_word_freq(file):
     no_punctuation_version = remove_punctuation(call_lowercase_function)
     # print(no_punctuation_version)
     call_dictionary_function = make_dictionary(no_punctuation_version)
-    remove_stop_words(call_dictionary_function)
+    no_stop_words_version = remove_stop_words(call_dictionary_function)
+    
+    sorted_dictionary = sorted(no_stop_words_version.items(), key=lambda x:x[1], reverse=True)
+    # print("Sorted", sorted_dictionary)
+    for item in sorted_dictionary:
+        print(f'{item[0]:15} | {item[1]}')
 
 if __name__ == "__main__":
     import argparse
