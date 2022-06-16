@@ -62,10 +62,11 @@ def print_word_freq(file):
     call_dictionary_function = make_dictionary(no_punctuation_version)
     no_stop_words_version = remove_stop_words(call_dictionary_function)
     
-    sorted_dictionary = sorted(no_stop_words_version.items(), key=lambda x:x[1], reverse=True)
+    alphabetized_dictionary = sorted(no_stop_words_version.items(), key=lambda x:x[0], reverse=False)
+    sorted_dictionary = sorted(alphabetized_dictionary, key=lambda x:(x[1]), reverse=True)
     # print("Sorted", sorted_dictionary)
     for item in sorted_dictionary:
-        print(f'{item[0]:15} | {item[1]}')
+        print(f'{item[0]:15} | {item[1]} {"*" * item[1]}')
 
 if __name__ == "__main__":
     import argparse

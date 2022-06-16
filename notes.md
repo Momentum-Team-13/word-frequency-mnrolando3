@@ -31,7 +31,7 @@ Calculate frequency of words in file
 
 Run python3 word_frequency.py praise_song_for_the_day.txt - DONE
 
-Get printed report
+Get printed report - DONE
     - create function
         - function prints report
         - function formats report to include key, pipe, value, asterisk
