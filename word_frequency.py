@@ -6,18 +6,18 @@ STOP_WORDS = [
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
     'will', 'with'
 ]
-def make_lowercase(read_file):
+def make_lowercase(file):
     lowercase_version = []
-    for word in read_file:
-        lowercase = word.lower()
+    for letter in file:
+        lowercase = letter.lower()
         lowercase_version.append(lowercase)
         # print(lowercase)
     # print(lowercase_version)
     return lowercase_version
 
-def remove_punctuation(lowercase_version):
+def remove_punctuation(file):
     line_list = []
-    for line in lowercase_version:
+    for line in file:
         no_period = line.replace('.','')
         no_comma = no_period.replace(',','')
         no_apostrophe = no_comma.replace('\'','')
@@ -28,9 +28,24 @@ def remove_punctuation(lowercase_version):
         # print(line_list)
     return line_list
 
-def remove_stop_words(line_list):
-    for sentence in line_list:
-        
+def remove_stop_words(file):
+    for word in file:
+        if word in STOP_WORDS:
+            
+
+def make_dictionary(file):
+    word_count_dict = {}
+    word_list = []
+    for line in file:
+        for word in line.split():
+            print("wordz", word)
+            # words = word_count.keys[]
+            word_list.append(word)
+        # print("list", word_list)
+    for word in word_list:
+        word_count_dict[word] = word_list.count(word)
+    print("dict", word_count_dict)
+    return word_count_dict
 
 def print_word_freq(file):
     print(f'Your file is: {file}')
@@ -39,9 +54,9 @@ def print_word_freq(file):
         #read_file is a string
     
     call_lowercase_function = make_lowercase(read_file)
-    remove_punctuation(call_lowercase_function)
-
-
+    no_punctuation_version = remove_punctuation(call_lowercase_function)
+    print(no_punctuation_version)
+    make_dictionary(no_punctuation_version)
 
 if __name__ == "__main__":
     import argparse
