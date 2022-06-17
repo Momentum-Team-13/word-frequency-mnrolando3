@@ -1,3 +1,4 @@
+import string
 from xml.sax import parseString
 
 
@@ -18,16 +19,10 @@ def make_lowercase(file):
 def remove_punctuation(file):
     line_list = []
     for line in file:
-        no_period = line.replace('.','')
-        no_comma = no_period.replace(',','')
-        no_apostrophe = no_comma.replace('\'','')
-        no_colon = no_apostrophe.replace(':','')
-        no_question_mark = no_colon.replace('?','')
-        # print(no_question_mark)
-        line_list.append(no_question_mark)
-        # print(line_list)
+        no_punctuation = line.translate(str.maketrans('','',string.punctuation))
+        line_list.append(no_punctuation)
     return line_list
-# function that takes file and, for every piece of the file, it establishes a variable that replaces a string with an empty string. Then, it establishes a new variable and replaces a string with an empty string for the previous variable and continues until all strings are replaced with empty strings. Then, appends final variable to a list that is returned.
+# function that takes file and, for every piece of the file, it establishes a variable that translates the piece into a string, then makes a translation table where each empty string is mapped onto an empty string and puncuation is replaced with None. Then, the function appends the variable to a list that is returned.
 
 def make_dictionary(file):
     word_count_dict = {}
@@ -73,8 +68,8 @@ def print_word_freq(file):
     
     alphabetized_dictionary = sorted(no_stop_words_version.items(), key=lambda x:x[0], reverse=False)
     # establishes a variable of the sorted the items of the previous variable, sorting on the first piece of the item (the key, since it is a dictionary), in descending order.
-    
-    sorted_dictionary = sorted(alphabetized_dictionary, key=lambda x:(x[1]), reverse=True)
+
+    sorted_dictionary = sorted(alphabetized_dictionary, key=lambda x:x[1], reverse=True)
     # establishes a variable of the sorted items of the previous variable, sorting on the second piece of the item (the value, since it is a dictionary), in ascending order.
     
     for item in sorted_dictionary:
