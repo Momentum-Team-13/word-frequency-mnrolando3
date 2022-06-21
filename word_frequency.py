@@ -14,7 +14,8 @@ def make_lowercase(file):
         lowercase = line.lower()
         lowercase_version.append(lowercase)
     return lowercase_version
-# function that takes file and, for every piece of the file it establishes a variable for each piece's lowercase and appends that to a list that is returned.
+# function that takes file and, for every piece of the file it establishes a variable for each piece's lowercase
+# Then, appends that to a list that is returned.
 
 def remove_punctuation(file):
     line_list = []
@@ -22,7 +23,9 @@ def remove_punctuation(file):
         no_punctuation = line.translate(str.maketrans('','',string.punctuation))
         line_list.append(no_punctuation)
     return line_list
-# function that takes file and, for every piece of the file, it establishes a variable that translates the piece into a string, then makes a translation table where each empty string is mapped onto an empty string and puncuation is replaced with None. Then, the function appends the variable to a list that is returned.
+# function that takes file and, for every piece of the file, it establishes a variable that translates the piece into a string
+# then, makes a translation table where each empty string is mapped onto an empty string and puncuation is replaced with None.
+# Then, the function appends the variable to a list that is returned.
 
 def make_dictionary(file):
     word_count_dict = {}
@@ -37,7 +40,11 @@ def make_dictionary(file):
         word_count_dict[word] = word_list.count(word)
     # print("dict", word_count_dict)
     return word_count_dict
-# function that takes file and creates an empty dictionary and empty list. Then, with a nested loop, it interates through each piece of the file and, for each subpiece in the split pieces, it appends that to the list. Then for each item in the list, it puts the item in the dictionary with the count of each item in the list as the value. The dictionary is returned.
+# function that takes file and creates an empty dictionary and empty list.
+# Then, with a nested loop, it interates through each piece of the file
+# for each subpiece in the split pieces, it appends that to the list. 
+# Then, for each item in the list, it is added to the dictionary with the count as the value. 
+# The dictionary is returned.
 
 def remove_stop_words(file_dictionary):
     new_dictionary = file_dictionary.copy()
@@ -46,7 +53,9 @@ def remove_stop_words(file_dictionary):
             del new_dictionary[key]
     # print(new_dictionary)
     return new_dictionary
-# function that takes dictionary and establishes a copy of the dictionary as a new dictionary then, for each piece in the dictionary, if it is also in the list of stop words, delete the piece from the new dictionary and return the new dictionary.
+# function that takes dictionary and establishes a copy of the dictionary as a new dictionary
+# then, for each piece in the dictionary, if it is also in the list of stop words, delete the piece from the new dictionary
+# return the new dictionary.
 
 def print_word_freq(file):
     print(f'Your file is: {file}')
@@ -67,14 +76,17 @@ def print_word_freq(file):
     # establishes variable to call remove_stop_words function on previous variable
     
     alphabetized_dictionary = sorted(no_stop_words_version.items(), key=lambda x:x[0], reverse=False)
-    # establishes a variable of the sorted the items of the previous variable, sorting on the first piece of the item (the key, since it is a dictionary), in descending order.
+    # establishes a variable of the sorted the items of the previous variable
+    # sorts on the first piece of the item (the key, since it is a dictionary), in descending order.
 
     sorted_dictionary = sorted(alphabetized_dictionary, key=lambda x:x[1], reverse=True)
-    # establishes a variable of the sorted items of the previous variable, sorting on the second piece of the item (the value, since it is a dictionary), in ascending order.
+    # establishes a variable of the sorted items of the previous variabl
+    # sorts on the second piece of the item (the value, since it is a dictionary), in ascending order.
     
     for item in sorted_dictionary:
         print(f'{item[0]:15} | {item[1]} {"*" * item[1]}')
-    # for each piece in the previous variable, print the first item with 15 spaces, a pipe delimitter, the second item, then an asterisk multiplied by the second item.
+    # for each piece in the previous variable, print an f-string
+    # the first item with 15 spaces, a pipe delimitter, the second item, then an asterisk multiplied by the second item.
 
 if __name__ == "__main__":
     import argparse
