@@ -54,7 +54,7 @@ def remove_stop_words(file_dictionary):
     # print(new_dictionary)
     return new_dictionary
 # function that takes dictionary and establishes a copy of the dictionary as a new dictionary
-# then, for each piece in the dictionary, if it is also in the list of stop words, delete the piece from the new dictionary
+# then, for each piece in the dictionary, if it is in the list of stop words, delete the piece from the new dictionary
 # return the new dictionary.
 
 def print_word_freq(file):
@@ -77,16 +77,16 @@ def print_word_freq(file):
     
     alphabetized_dictionary = sorted(no_stop_words_version.items(), key=lambda x:x[0], reverse=False)
     # establishes a variable of the sorted the items of the previous variable
-    # sorts on the first piece of the item (the key, since it is a dictionary), in descending order.
+    # sorts on the first piece of the item in descending order
 
     sorted_dictionary = sorted(alphabetized_dictionary, key=lambda x:x[1], reverse=True)
-    # establishes a variable of the sorted items of the previous variabl
-    # sorts on the second piece of the item (the value, since it is a dictionary), in ascending order.
+    # establishes a variable of the sorted items of the previous variable
+    # sorts on the second piece of the item in ascending order
     
     for item in sorted_dictionary:
         print(f'{item[0]:15} | {item[1]} {"*" * item[1]}')
     # for each piece in the previous variable, print an f-string
-    # the first item with 15 spaces, a pipe delimitter, the second item, then an asterisk multiplied by the second item.
+    # first item with 15 spaces, pipe, second item, asterisk multiplied by second item
 
 if __name__ == "__main__":
     import argparse
